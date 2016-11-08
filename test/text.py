@@ -1,6 +1,6 @@
 # -*- coding: UTF-8 -*-
 from Tkinter import *
-from ttk import *
+# from ttk import *
 import tkMessageBox
 
 root = Tk()
@@ -27,8 +27,8 @@ Label(root, text = 'Password:').grid(row = 1, sticky = W)
 Entry(root).grid(row = 1, column = 1, sticky = E)
 
 def login(event):
-	# tkMessageBox.showinfo("LALALA")
-	entry.delete(0, END)
+	tkMessageBox.showinfo("LALALA")
+	# entry.delete(0, END)
 
 btn = Button(root, text = 'Login')
 btn.grid(row = 2, column = 1, sticky = E)

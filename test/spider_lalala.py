@@ -27,12 +27,11 @@ header = {
 #     print urlparse.urljoin(root_url, new_url)
 
 
-def download(img_url, save_path):
-    arr = img_url.split('/')
+def download(img_url, save_path, img_name):
 
     result = requests.get(img_url, None, headers=header, timeout=30)
     if result.status_code == 200:
-        f = open(save_path + arr[len(arr) - 1], 'wb')
+        f = open(save_path + img_name, 'wb')
         f.write(result.content)
         f.flush()
         f.close()
@@ -48,6 +47,11 @@ def main():
     if not is_exists:
         os.mkdir(save_path)
 
+    img_names = set()
+    img_list = os.listdir(save_path)
+    for name in img_list:
+        img_names.add(name)
+
     count = 0
     count_url = 0
     for i in range(50):
@@ -59,11 +63,17 @@ def main():
             img_urls = html.xpath('//*[@class="news"]/img/@src')
             count_url += 1
             print 'Url page === ', count_url
-            for imgUrl in img_urls:
-                download(imgUrl, save_path)
+            for img_url in img_urls:
+                arr = img_url.split('/')
+                img_name = arr[len(arr) - 1]
                 count += 1
-                print 'count === ', count
-                time.sleep(random.randint(1, 10) / 5.0)
+                if img_name not in img_names:
+                    download(img_url, save_path, img_name)
+                    img_names.add(img_name)
+                    time.sleep(random.randint(1, 10) / 5.0)
+                    print 'count === ', count
+                else:
+                    print 'old count === ', count
 
 
 main()

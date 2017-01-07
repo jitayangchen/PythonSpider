@@ -50,7 +50,7 @@ def main():
 
     count = 0
     count_url = 0
-    for i in range(3):
+    for i in range(50):
         result = requests.get(root_url, None, headers=header)
         if result.status_code == 200:
             html = etree.HTML(result.text)
@@ -63,7 +63,7 @@ def main():
                 download(imgUrl, save_path)
                 count += 1
                 print 'count === ', count
-                time.sleep(random.randint(1, 10) / 10.0)
+                time.sleep(random.randint(1, 10) / 5.0)
 
 
 main()

@@ -47,7 +47,8 @@ for i in range(100):
     result = requests.get(root_url, None, headers=header)
     if result.status_code == 200:
         html = etree.HTML(result.text)
-        root_url = html.xpath('//*[@class="next_pre"]/span[2]/a/@href')[0]
+        new_url = html.xpath('//*[@class="next_pre"]/span[2]/a/@href')[0]
+        root_url = urlparse.urljoin(root_url, new_url)
         imgUrls = html.xpath('//*[@class="news"]/img/@src')
         countUrl += 1
         print 'Url page === ', countUrl

@@ -26,40 +26,37 @@ import urllib2
 #
 # print(re.compile(r"/view/\d+\.htm"))
 
-root_url = "http://pic.d741.com/d4/3030/303001-2.jpg"
+root_url = "http://i.meizitu.net/2017/01/04a01.jpg"
 # arr = root_url.split('/')
 #
 # print(arr[len(arr) - 1])
 
-# Accept:text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
-# Accept-Encoding:gzip, deflate, sdch
-# Accept-Language:zh-CN,zh;q=0.8,en;q=0.6
-# Cache-Control:max-age=0
-# Connection:keep-alive
-# Cookie:__cfduid=d399a5506c1d2fb6aba33dcc7feaea39c1475839310
-# Host:pic.d741.com
-# If-Modified-Since:Tue, 19 Apr 2016 21:57:50 GMT
-# Referer:http://www.482cao.com/html/article/index141670.html
-# Upgrade-Insecure-Requests:1
-# User-Agent:Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.143 Safari/537.36
+# GET /d4/3030/303001-2.jpg HTTP/1.1
+# Host: pic.d741.com
+# Connection: keep-alive
+# Cache-Control: max-age=0
+# Upgrade-Insecure-Requests: 1
+# User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.95 Safari/537.36
+# Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+# Accept-Encoding: gzip, deflate, sdch
+# Accept-Language: zh-CN,zh;q=0.8,en;q=0.6
+# Cookie: __cfduid=d7ad26dc6d0ab6ce0290bc10917ab65081482416826
+# If-Modified-Since: Tue, 19 Apr 2016 21:57:50 GMT
 
-header = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.143 Safari/537.36',
+header = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.95 Safari/537.36',
           'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
           'Accept-Language': 'zh-CN,zh;q=0.8,en;q=0.6',
           'Accept-Encoding': 'gzip, deflate, sdch',
           'Cache-Control': 'max-age=0',
-          'If-Modified-Since': 'Tue, 19 Apr 2016 21:57:50 GMT',
-          'Cookie': '__cfduid=d399a5506c1d2fb6aba33dcc7feaea39c1475839310',
-          'Host': 'pic.d741.com',
+          # 'Host': 'pic.d741.com',
           'Upgrade-Insecure-Requests': '1',
-          'Connection': 'keep-alive',
-          'Referer': 'http://www.482cao.com/html/article/index141670.html'}
+          'Connection': 'keep-alive'}
 
 print("---------- download stat ----------")
 save_path = os.getcwd() + '/imgs/'
 arr = root_url.split('/')
 
-req_timeout = 60
+req_timeout = 5
 req = urllib2.Request(root_url, None, headers=header)
 conn = urllib2.urlopen(req, None, req_timeout)
 

@@ -1,4 +1,5 @@
 import urllib2
+import lxml
 
 import re
 from bs4 import BeautifulSoup

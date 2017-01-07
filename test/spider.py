@@ -4,7 +4,7 @@ from lxml import etree
 import os
 import random
 
-root_url = "http://www.mzitu.com/82667"
+root_url = "http://www.mzitu.com/33045"
 
 header = {
     'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.95 Safari/537.36',
@@ -38,7 +38,7 @@ def download(img_url):
     print("---------- download complete ----------")
 
 count = 0
-for i in range(66):
+for i in range(18):
     result = requests.get(root_url, None, headers=header)
     if result.status_code == 200:
         html = etree.HTML(result.text)

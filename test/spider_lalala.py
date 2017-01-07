@@ -66,6 +66,10 @@ def main():
             for img_url in img_urls:
                 arr = img_url.split('/')
                 img_name = arr[len(arr) - 1]
+                # print img_name
+                img_name_temp = time.strftime('%Y%m%d%H%M%S', time.localtime(time.time())) + "%d" % count
+                img_name = img_name_temp + img_name.split('.')[1]
+                # print img_name
                 count += 1
                 if img_name not in img_names:
                     print 'start download img'

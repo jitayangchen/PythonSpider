@@ -30,7 +30,7 @@ header = {
 def download(img_url, save_path):
     arr = img_url.split('/')
 
-    result = requests.get(img_url, None, headers=header)
+    result = requests.get(img_url, None, headers=header, timeout=30)
     if result.status_code == 200:
         f = open(save_path + arr[len(arr) - 1], 'wb')
         f.write(result.content)
@@ -51,7 +51,7 @@ def main():
     count = 0
     count_url = 0
     for i in range(50):
-        result = requests.get(root_url, None, headers=header)
+        result = requests.get(root_url, None, headers=header, timeout=30)
         if result.status_code == 200:
             html = etree.HTML(result.text)
             new_url = html.xpath('//*[@class="next_pre"]/span[2]/a/@href')[0]

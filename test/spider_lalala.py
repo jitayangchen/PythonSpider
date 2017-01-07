@@ -68,6 +68,7 @@ def main():
                 img_name = arr[len(arr) - 1]
                 count += 1
                 if img_name not in img_names:
+                    print 'start download img'
                     download(img_url, save_path, img_name)
                     img_names.add(img_name)
                     time.sleep(random.randint(1, 10) / 5.0)

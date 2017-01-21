@@ -14,7 +14,9 @@ import time
 # for name in arr:
 #     print name
 
-print "%f" % time.time()
-print time.localtime(time.time())
-print time.strftime('%Y%m%d%H%M%S', time.localtime(time.time()))
-print time.strftime('%Y-%m-%d %H:%M:%S',time.localtime(time.time()))
+# print "%f" % time.time()
+# print time.localtime(time.time())
+# print time.strftime('%Y%m%d%H%M%S', time.localtime(time.time()))
+# print time.strftime('%Y-%m-%d %H:%M:%S',time.localtime(time.time()))
+
+# print __name__
